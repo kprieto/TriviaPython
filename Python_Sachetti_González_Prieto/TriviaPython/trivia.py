@@ -5,7 +5,7 @@ Integrantes:
     Sofia Sachetti
 """
 import random 
-# Petición de nombre de usuario y edad
+# Petición al usuario de ingresar nombre y edad
 
 nombre = input("Ingresa tu nombre: ").title()
 edad = int(input("Ingresa tu edad: "))
