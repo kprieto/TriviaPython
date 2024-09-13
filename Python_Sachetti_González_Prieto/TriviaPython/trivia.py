@@ -5,7 +5,7 @@ Integrantes:
     Sofia Sachetti
 """
 import random 
-# Necesitamos pedir al usuario nombre y edad
+# Petición de nombre de usuario y edad
 
 nombre = input("Ingresa tu nombre: ").title()
 edad = int(input("Ingresa tu edad: "))
@@ -16,8 +16,14 @@ def obtener_preguntas():
     pregunta_2 = ("¿Quién es el creador de Python?",("A) Dennis Ritchie","B) James Gosling","C) Guido van Rossum"),"C")
     pregunta_3 = ("¿Cómo se comenta una línea en Python?",("A) //", "B) #", "C) /*"),"B")
     pregunta_4= ("¿Cómo se declara una función?",("A) func", "B) define", "C) def"),"C")
-        
-    preguntas = [pregunta_1,pregunta_2,pregunta_3,pregunta_4]
+    pregunta_5 = ('¿Que es un callback?', ('A) Una lista de tuplas', 'B) Una funcion que se pasa como parametro de otra funcion', 'C) Metodo que devuelve el primer elemento de un array'), 'B')  
+    pregunta_6 = ('¿Que es una matriz?', ('A) Una funcion que organiza listas', 'B) Una estructura de datos bidimensional de filas y columnas', 'C) Un conjunto de funciones'), 'B')   
+    pregunta_7 = ('¿Que es una constante?', ('A) Un tipo de variable que no puede ser cambiada', 'B) Un tipo de dato iterable', 'C) Un metodo de arrays'), 'A')
+    pregunta_8 = ('¿Que tipo de datos son "True" y "False"?', ('A) Identificadores', 'B) Marcadores', 'C) Booleanos'), 'C')
+    pregunta_9 = ('¿Cual es la funcion de "print"?', ('A) Copiar un dato', 'B) Muestra informacion en consola', 'C) Permite el ingreso de datos por consola'), 'B')
+    pregunta_10 = ('¿Cual es la diferencia entre tuplas y listas?', ('A) Las tuplas son inmutables y las listas son mutables', 'B) Las tuplas son mutables y las listas son inmutables', 'C) Son iguales'), 'A')
+    
+    preguntas = [pregunta_1,pregunta_2,pregunta_3,pregunta_4,pregunta_5,pregunta_6,pregunta_7,pregunta_8,pregunta_9,pregunta_10]
     return preguntas
 
 #Función para obtener una respuesta por el usuario      
@@ -69,9 +75,11 @@ def juego_trivia():
         
         if respuesta == respuesta_correcta:
             respuestas_correctas += 1
+            print("Tu respuesta es correcta.")
         else:
             intentos_max -= 1
             respuestas_incorrectas += 1
+            print("Tu respuesta es incorrecta.")
                 
         if intentos_max == 0:
             print("Haz fallado 3 veces. El juego a terminado.\n")
