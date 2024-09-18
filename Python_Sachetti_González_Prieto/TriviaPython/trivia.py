@@ -32,16 +32,16 @@ def obtener_respuesta(num_opciones):
     opciones = ""
     for l in range(num_opciones):
         opciones += letras_opciones[l] + ","
-    letra = validar_respuesta(input(f"\n Tu respuesta ({opciones.rstrip(opciones[-1])}): ").strip().upper())
-    return letra
+    letra = input(f"\n Tu respuesta ({opciones.rstrip(opciones[-1])}): ").strip().upper()
+    return validar_respuesta(letra, num_opciones)
 
 #Función para validar que la respuesta sea una letra    
-def validar_respuesta(letra):
+def validar_respuesta(letra,num_opciones):
     if letra.isalpha() and len(letra) == 1:
         return letra
     else:
-        print("Solo se permite una letra.")
-        return  validar_respuesta(obtener_respuesta())
+        print("Solo se permite una letra válida.")
+        return  obtener_respuesta(num_opciones)
 
 #Función para obtener el número de opciones de la pregunta
 def obtener_numero_opciones_pregunta(opciones):
@@ -51,10 +51,40 @@ def obtener_numero_opciones_pregunta(opciones):
 def mostrar_opciones_pregunta(pregunta):
     for opcion in pregunta:
         print(f"\n {opcion}")
-        
+
+#Función para mostrar el mensaje de puntuación y despedida al usuario
+def mostrar_puntuacion(nombre, respuestas_correctas):
+    #Muestra el puntaje de las respuestas correctas
+    print(f"{nombre} tu puntuación final es: {respuestas_correctas}/{len(obtener_preguntas())}.\n")
+
+    #Mensajes de despidida según su respuestas correctas
+    if respuestas_correctas == len(obtener_preguntas()):
+        print("¡Excelente! Has respondido correctamente todas las preguntas.")
+    elif respuestas_correctas >= len(obtener_preguntas()) // 2:
+        print("¡Buen trabajo! Sabes bastante sobre Python, pero aún puedes mejorar.")
+    else:
+        print("Parece que necesitas repasar más sobre Python.")
+    
+    print("Gracias por ingresar al Juego de la Trivia de Python.\n")
+
 #Variables globales
 respuestas_correctas = 0 
 respuestas_incorrectas = 0
+
+# Determinar si el usuario es mayor de edad para jugar y comienza el juego
+def verificar_usuario_mayor(nombre):
+    if (edad < 18):
+        print("Lo sentimos, debes ser mayor de edad para jugar.")
+    else:
+        # Mensaje de bienvenida al juego
+        print(f"¡Bienvenido {nombre} a la trivia de Python! \nAntes de empezar el juego te contamos un poco su funcionamiento."
+            "\nTe enviaremos preguntas y tu debes elegir la respuesta correcta." 
+            "\nSi aciertas a la respuesta correcta ganas un punto."
+            "\nSi la respuesta es incorrecta no sumas ningún punto, pere recuerda que no puedes fallas más de tres veces."
+            "\nVamos a comenzar con las preguntas.")
+        #Iniciamos el juego llamando a la funcion              
+        juego_trivia()
+
 
 #Función que determina la funcionalidad del juego 
 def juego_trivia():
@@ -84,31 +114,18 @@ def juego_trivia():
         if intentos_max == 0:
             print("Haz fallado 3 veces. El juego a terminado.\n")
             break 
+        
         indice += 1
+        
+    #Muestra el mensaje de puntuación y despedida al usuario
+    mostrar_puntuacion(nombre, respuestas_correctas)
 
-# Determinar si el usuario es mayor de edad para jugar y comienza el juego
 
-if (edad < 18):
-    print("Lo sentimos, debes ser mayor de edad para jugar.")
-else:
-    # Mensaje de bienvenida al juego
-    print(f"¡Bienvenido {nombre} a la trivia de Python! \nAntes de empezar el juego te contamos un poco su funcionamiento."
-        "\nTe enviaremos preguntas y tu debes elegir la respuesta correcta." 
-        "\nSi aciertas a la respuesta correcta ganas un punto."
-        "\nSi la respuesta es incorrecta no sumas ningún punto, pere recuerda que no puedes fallas más de tres veces."
-        "\nVamos a comenzar con las preguntas.")
-    #Iniciamos el juego llamando a la funcion              
-    juego_trivia()
+        
+# Verifica si el usuario es mayor de edad y comienza el juego
+verificar_usuario_mayor(nombre)
 
-#Muestra el puntaje de las respuestas correctas
-print(f"{nombre} tu puntuación final es: {respuestas_correctas}/{len(obtener_preguntas())}.\n")
 
-#Mensajes de despidida según su respuestas correctas
-if respuestas_correctas == len(obtener_preguntas()):
-    print("¡Excelente! Has respondido correctamente todas las preguntas.")
-elif respuestas_correctas >= len(obtener_preguntas()) // 2:
-    print("¡Buen trabajo! Sabes bastante sobre Python, pero aún puedes mejorar.")
-else:
-    print("Parece que necesitas repasar más sobre Python.")
 
-print("Gracias por ingresar al Juego de la Trivia de Python.\n")
+
+
