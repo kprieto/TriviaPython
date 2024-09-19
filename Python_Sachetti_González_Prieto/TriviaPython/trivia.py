@@ -80,7 +80,7 @@ def verificar_usuario_mayor(nombre):
         print(f"¡Bienvenido {nombre} a la trivia de Python! \nAntes de empezar el juego te contamos un poco su funcionamiento."
             "\nTe enviaremos preguntas y tu debes elegir la respuesta correcta." 
             "\nSi aciertas a la respuesta correcta ganas un punto."
-            "\nSi la respuesta es incorrecta no sumas ningún punto, pere recuerda que no puedes fallas más de tres veces."
+            "\nSi la respuesta es incorrecta no sumas ningún punto, pero recuerda que no puedes fallas más de tres veces."
             "\nVamos a comenzar con las preguntas.")
         #Iniciamos el juego llamando a la funcion              
         juego_trivia()
