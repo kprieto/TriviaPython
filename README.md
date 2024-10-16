@@ -1,4 +1,4 @@
-# Juego de Trivia sobre Python
+# Juego de Trivia sobre Python <img src="https://brandslogos.com/wp-content/uploads/images/large/python-logo.png" alt="Python" width="50" height="50">
 > Un juego de trivia es una excelente forma de poner a prueba tus conocimientos y divertirte al mismo tiempo.
 > 
 > Consiste en una serie de preguntas de opción múltiple sobre temas que contemplan a Python.
